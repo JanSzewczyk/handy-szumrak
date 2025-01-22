@@ -1,0 +1,3 @@
+{
+  "extends": "@szum-tech/semantic-release-config/without-npm"
+}

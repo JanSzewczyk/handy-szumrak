@@ -1,0 +1,45 @@
+{
+  "name": "handy-szumrak",
+  "version": "1.0.0",
+  "private": false,
+  "description": "",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "handy-szumrak": "./dist/index.cjs"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup && copyfiles -a -u 1 'src/templates/**/*' ./dist",
+    "dev": "npm run build && npx szumrak",
+    "lint": "eslint .",
+    "lint:inspect": "npx @eslint/config-inspector@latest",
+    "prettier:check": "prettier --check .",
+    "prettier:write": "prettier --write .",
+    "lint:ci": "eslint . -o eslint-results.sarif -f @microsoft/eslint-formatter-sarif",
+    "lint:fix": "eslint . --fix",
+    "typechek": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@szum-tech/eslint-config": "^2.1.4",
+    "@szum-tech/prettier-config": "^1.4.5",
+    "@szum-tech/semantic-release-config": "^2.2.1",
+    "@types/cross-spawn": "6.0.0",
+    "@types/node": "^22.10.2",
+    "@types/prompts": "^2.4.9",
+    "commander": "^12.1.0",
+    "copyfiles": "^2.4.1",
+    "cross-spawn": "^7.0.6",
+    "eslint": "^9.17.0",
+    "picocolors": "^1.1.1",
+    "prettier": "^3.4.2",
+    "prompts": "^2.4.2",
+    "semantic-release": "^24.2.1",
+    "tsup": "^8.3.5",
+    "typescript": "^5.5.3",
+    "update-check": "^1.5.4"
+  }
+}
