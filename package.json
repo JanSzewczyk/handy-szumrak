@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "private": false,
   "description": "WIP",
-  "license": "MIT",
   "homepage": "https://github.com/JanSzewczyk/handy-szumrak#readme",
   "bugs": {
     "url": "https://github.com/JanSzewczyk/handy-szumrak/issues"
@@ -12,6 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/JanSzewczyk/handy-szumrak.git"
   },
+  "license": "MIT",
   "author": "Szum-Tech <szum.tech@gmail.com>",
   "type": "module",
   "main": "dist/index.js",
