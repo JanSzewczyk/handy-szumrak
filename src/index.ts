@@ -184,9 +184,9 @@ async function notifyUpdate(): Promise<void> {
         pnpm: "pnpm add -g",
         bun: "bun add -g"
       };
+      logger.log();
       logger.log(
-        "\n" +
-          yellow(bold("A new version of `handy-szumrak` is available!")) +
+        yellow(bold("A new version of `handy-szumrak` is available!")) +
           "\n" +
           "You can update by running: " +
           cyan(`${global[packageManager]} handy-szumrak`) +
