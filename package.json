@@ -1,9 +1,18 @@
 {
   "name": "handy-szumrak",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "private": false,
-  "description": "",
+  "description": "WIP",
   "license": "MIT",
+  "homepage": "https://github.com/JanSzewczyk/handy-szumrak#readme",
+  "bugs": {
+    "url": "https://github.com/JanSzewczyk/handy-szumrak/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JanSzewczyk/handy-szumrak.git"
+  },
+  "author": "Szum-Tech <szum.tech@gmail.com>",
   "type": "module",
   "main": "dist/index.js",
   "bin": {
@@ -14,13 +23,13 @@
   ],
   "scripts": {
     "build": "tsup && copyfiles -a -u 1 'src/templates/**/*' ./dist",
-    "dev": "npm run build && npx szumrak",
+    "dev": "npm run build && npx handy-szumrak",
     "lint": "eslint .",
+    "lint:ci": "eslint . -o eslint-results.sarif -f @microsoft/eslint-formatter-sarif",
+    "lint:fix": "eslint . --fix",
     "lint:inspect": "npx @eslint/config-inspector@latest",
     "prettier:check": "prettier --check .",
     "prettier:write": "prettier --write .",
-    "lint:ci": "eslint . -o eslint-results.sarif -f @microsoft/eslint-formatter-sarif",
-    "lint:fix": "eslint . --fix",
     "typechek": "tsc --noEmit"
   },
   "devDependencies": {
@@ -41,5 +50,8 @@
     "tsup": "^8.3.5",
     "typescript": "^5.5.3",
     "update-check": "^1.5.4"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
