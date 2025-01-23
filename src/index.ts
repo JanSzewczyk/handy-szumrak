@@ -14,6 +14,7 @@ import { logger } from "./helpers/logger";
 import { prompt } from "./helpers/prompt";
 import { setUp } from "./set-up";
 import { type Options } from "./types";
+import { sleep } from "./utils";
 
 function handleSigTerm() {
   return process.exit(0);
@@ -23,7 +24,7 @@ process.on("SIGINT", handleSigTerm);
 process.on("SIGTERM", handleSigTerm);
 
 const command = new Command(packageJson.name)
-  .version(packageJson.version, "-v, --version", "Output the current version of create-next-app.")
+  .version(packageJson.version, "-v, --version", "Output the current version of handy-szumrak.")
   .helpOption("-h, --help", "Display this help message.");
 
 let opts: Options = { prettier: false, eslint: false, semanticRelease: false };
@@ -154,12 +155,24 @@ async function run(): Promise<void> {
   logger.log();
   await setUp({ packageManager, opts });
 
+  await footer();
+}
 
+async function footer() {
+  logger.log();
+  logger.log(`Dear ${bold("Developer")}`);
+  await sleep(2_000);
+  logger.log("\nThanks a lot for using 'handy-szumrak'");
+  await sleep(2_000);
+  logger.log("If I helped you, leave a star ⭐ 👉 https://github.com/JanSzewczyk/handy-szumrak");
+  await sleep(2_000);
+  logger.log("And recommend to others");
+  await sleep(4_000);
+  logger.log(`\nMay the ${bold("SZUMRAK")} be with You 🚀🚀🚀`);
 }
 
 const update = updateCheck(packageJson).catch(() => null);
 
-// TODO
 async function notifyUpdate(): Promise<void> {
   try {
     if ((await update)?.latest) {
@@ -169,12 +182,11 @@ async function notifyUpdate(): Promise<void> {
         pnpm: "pnpm add -g",
         bun: "bun add -g"
       };
-      const updateMessage = `${global[packageManager]} create-next-app`;
       logger.log(
-        yellow(bold("A new version of `create-next-app` is available!")) +
+        yellow(bold("A new version of `handy-szumrak` is available!")) +
           "\n" +
           "You can update by running: " +
-          cyan(updateMessage) +
+          cyan(`${global[packageManager]} handy-szumrak`) +
           "\n"
       );
     }
@@ -184,7 +196,6 @@ async function notifyUpdate(): Promise<void> {
   }
 }
 
-// TODO
 async function exit(reason: { command?: string }) {
   logger.log();
   logger.log("Aborting installation.");
