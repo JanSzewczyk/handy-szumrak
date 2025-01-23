@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.1](https://github.com/JanSzewczyk/handy-szumrak/compare/v1.0.0...v1.0.1) (2025-01-23)
+
+### Bug Fixes
+
+* **dependabot:** fix typo ([cdebb05](https://github.com/JanSzewczyk/handy-szumrak/commit/cdebb05d8768876bbbdf16eee15a7c694c19a7d6))
+
+### Build System
+
+* **deps-dev:** bump the eslint-config-dependencies group with 5 updates ([861d5d9](https://github.com/JanSzewczyk/handy-szumrak/commit/861d5d9446cc711e0ad8e0164e7498cba416be01))
+
 ## 1.0.0 (2025-01-23)
 
 ### Features
