@@ -23,9 +23,11 @@ function handleSigTerm() {
 process.on("SIGINT", handleSigTerm);
 process.on("SIGTERM", handleSigTerm);
 
-const command = new Command(packageJson.name)
+const program = new Command(packageJson.name)
   .version(packageJson.version, "-v, --version", "Output the current version of handy-szumrak.")
-  .helpOption("-h, --help", "Display this help message.");
+  .helpOption("-h, --help", "Display this help message.")
+  .allowUnknownOption()
+  .parse(process.argv);
 
 let opts: Options = { prettier: false, eslint: false, semanticRelease: false };
 
@@ -183,7 +185,8 @@ async function notifyUpdate(): Promise<void> {
         bun: "bun add -g"
       };
       logger.log(
-        yellow(bold("A new version of `handy-szumrak` is available!")) +
+        "\n" +
+          yellow(bold("A new version of `handy-szumrak` is available!")) +
           "\n" +
           "You can update by running: " +
           cyan(`${global[packageManager]} handy-szumrak`) +
